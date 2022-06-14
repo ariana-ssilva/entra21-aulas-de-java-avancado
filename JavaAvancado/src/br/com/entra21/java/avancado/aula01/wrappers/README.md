@@ -1,59 +1,86 @@
-# ENUMS in Java
+# Wrappers in Java
 
-> Enumerations serve the purpose of representing a group of named constants in a programming language. For example, the 4 suits in a deck of playing cards may be 4 enumerators named Club, Diamond, Heart, and Spade, belonging to an enumerated type named Suit. Other examples include natural enumerated types (like the planets, days of the week, colors, directions, etc.). 
-Enums are used when we know all possible values at compile-time, such as choices on a menu, rounding modes, command-line flags, etc. It is not necessary that the set of constants in an enum type stay fixed for all time.
+> A Wrapper class is a class whose object wraps or contains primitive data types. When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. In other words, we can wrap a primitive value into a wrapper class object.
 
 <br>
 
-## Declaration of enum in Java
-Enum declaration can be done outside a Class or inside a Class but not inside a Method:
+## Need of Wrapper Classes
+<br>
+
+1. They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method (because primitive types are passed by value);
+
+2. The classes in java.util package handles only objects and hence wrapper classes help in this case also;
+   
+3. Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and not primitive types;
+
+4. An object is needed to support synchronization in multithreading.
+
+<br>
+
+## Primitive Data types and their Corresponding Wrapper class
+
+<br>
+<p align=center>
+<img src=Wrapper-Class-in-Java.png width=500px heigth= 700px>
+<p>
+<br>
+
+## Autoboxing and Unboxing 
+
+* Autoboxing: Automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of `int to Integer, long to Long, double to Double` etc.
+Example:
 
 ```java
-enum Color {
-    RED,
-    GREEN,
-    BLUE;
-}
- 
-public class Test {
+// Java program to demonstrate Autoboxing
+  
+import java.util.ArrayList;
+class Autoboxing
+{
     public static void main(String[] args)
     {
-        Color c1 = Color.RED;
-        System.out.println(c1);
+        char ch = 'a';
+  
+        // Autoboxing- primitive to Character object conversion
+        Character a = ch;
+  
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+  
+        // Autoboxing because ArrayList stores only objects
+        arrayList.add(25);
+  
+        // printing the values from object
+        System.out.println(arrayList.get(0));
     }
 }
+
 ```
 <br>
 
-### Important Points of enum:  
+* Unboxing: It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example – conversion of Integer to int, Long to long, Double to double, etc.
 
-* Every enum is internally implemented by using Class;
-* Every enum constant represents an object of type enum;
-* enum type can be passed as an argument to switch statements; 
-* Every enum constant is always implicitly public static final. Since it is static, we can access it by using the enum Name. Since it is final, we can’t create child enums;
+
+```java
+// Java program to demonstrate Unboxing
+import java.util.ArrayList;
   
-<br>
-
-## Enum and Inheritance:
-* All enums implicitly extend ``java.lang.Enum class``. As a class can only extend one parent in Java, so an enum cannot extend anything else;
-* `toString()` method is overridden in ``java.lang.Enum`` class, which returns enum constant name;
-* enum can implement many interfaces.
-
-<br>
-
-## values(), ordinal() and valueOf() methods:  
-* These methods are present inside ``java.lang.Enum``;
-* ``values()`` method can be used to return all values present inside the enum;
-* Order is important in enums.By using the ``ordinal()`` method, each enum constant index can be found, just like an array index;
-* ``valueOf()`` method returns the enum constant of the specified string value if exists.
-
-<br>
-
-## enum and constructor:  
-* ``enum`` can contain a constructor and it is executed separately for each enum constant at the time of enum class loading;
-* We can’t create enum objects explicitly and hence we can’t invoke enum constructor directly.
+class Unboxing
+{
+    public static void main(String[] args)
+    {
+        Character ch = 'a';
   
- <br>
+        // unboxing - Character object to primitive conversion
+        char a = ch;
+  
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.add(24);
+  
+        // unboxing because get method returns an Integer object
+        int num = arrayList.get(0);
+  
+        // printing the values from primitive data types
+        System.out.println(num);
+    }
+}
 
-## enum and methods:  
-* ``enum`` can contain both ``concrete methods and abstract methods``. If an enum class has an abstract method, then each instance of the enum class must implement it.
+```
