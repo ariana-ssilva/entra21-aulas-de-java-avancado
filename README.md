@@ -17,11 +17,12 @@
 - [x] Wrapper;
 - [x] ENUM;
 - [x] Collections List (ArrayList);
-- [ ] Collections List (LinkedList);
-- [ ] Annotations;
-- [ ] Date;
-- [ ] Collections Set (HashSet);
-- [ ] Collections Map (HashMap);
-- [ ] Generics;
+- [x] Collections List (LinkedList);
+- [x] Annotations;
+- [x] Date;
+- [x] Collections Set (HashSet);
+- [x] Collections Map (HashMap);
+- [x] Generics;
+- [x] Errors and Exceptions
 - [ ] Lambda Functions;
-- [ ] Errors and Exceptions
+ 
