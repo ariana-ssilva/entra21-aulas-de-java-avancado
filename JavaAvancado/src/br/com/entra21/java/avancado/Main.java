@@ -11,6 +11,10 @@ import br.com.entra21.java.avancado.aula02.Aula02;
 import br.com.entra21.java.avancado.aula03.Aula03;
 import br.com.entra21.java.avancado.aula03.anotacoes.Responsavel;
 import br.com.entra21.java.avancado.aula04.Aula04;
+import br.com.entra21.java.avancado.aula05.Aula05;
+import br.com.entra21.java.avancado.aula06.Aula06;
+import br.com.entra21.java.avancado.aula07.Aula07;
+import br.com.entra21.java.avancado.aula08.Aula08;
 
 public class Main {
 
@@ -19,6 +23,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		byte opcao;
+		Repositorio.inicializarPessoas();
 		do {
 			System.out.println(montarMenu());
 			opcao = entrada.nextByte();
@@ -37,20 +42,35 @@ public class Main {
 				Aula03.aprender();
 				break;
 			case 4:
-				new Aula04("Aula04 - Collections - SET - HashSet", new ArrayList<>(Arrays.asList("Definir","CRUD"))).aprender();
+				new Aula04("Aula04 - Collections - SET - HashSet", new ArrayList<>(Arrays.asList("Definir", "CRUD")))
+						.aprender();
 				break;
 			case 5:
-				new Aula04("Aula05 - Collections - MAP - HashMap", null).aprender();
-				
+				new Aula05("Aula05 - Collections - MAP - HashMap",
+						new ArrayList<>(
+								Arrays.asList("Definir", "Create", "Read", "Update", "Delete", "Exemplo prático")))
+						.aprender();
 				break;
 			case 6:
-				pedirPaciencia();
+				new Aula06("Aula 06", new ArrayList<>(Arrays.asList("Aprender Generics", "Listar Pessoa",
+						"Adicionar Pessoa", "Editar Pessoa", "Deletar Pessoa"))).aprender();
 				break;
 			case 7:
-				pedirPaciencia();
+
+				ArrayList<String> assunto = new ArrayList<>();
+				assunto.add("Tratamento de Erro");
+				assunto.add("Obter detalhes do Erro");
+				assunto.add("Custom exception");
+				new Aula07("AULA 7", assunto).aprender();
 				break;
+
 			case 8:
-				pedirPaciencia();
+				ArrayList<String> topico = new ArrayList<>();
+				topico.add("Aprender Listar");
+				topico.add("Filtrar");
+				topico.add("Estatisticas");
+				topico.add("Ordenacao");
+				new Aula08("AULA 8", topico).aprender();
 				break;
 			case 9:
 				pedirPaciencia();

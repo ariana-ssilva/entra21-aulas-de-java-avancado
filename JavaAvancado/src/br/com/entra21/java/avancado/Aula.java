@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Aula {
 
 	Scanner entrada = new Scanner(System.in);
+
 	private String titulo;
 	private ArrayList<String> assuntos;
 
@@ -24,7 +25,7 @@ public class Aula {
 				for (int contador = 0; contador < assuntos.size(); contador++) {
 					System.out.println(" " + (contador + 1) + " = " + assuntos.get(contador));
 				}
-			}else {
+			} else {
 				System.out.println("Não há itens especificos para essa aula???");
 			}
 
@@ -45,11 +46,22 @@ public class Aula {
 			System.out.println("Até a proxima!");
 			break;
 		}
+		// um override que aprovieta meu codigo
+		// e cmo  se tivesse sido escrito aqui
 		return opcao;
 	}
 
 	public String getTitulo() {
 		return titulo;
+	}
+
+	public Pessoa capturarValores() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Scanner getEntrada() {
+		return entrada;
 	}
 
 }
