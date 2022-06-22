@@ -1,7 +1,5 @@
 # Entra21 - Full stack Java Course ☕
 
-
-
 <center>
 
 ## 📈 Advanced Java  📈
@@ -25,5 +23,5 @@
 - [x] Collections Map (HashMap);
 - [x] Generics;
 - [x] Errors and Exceptions
-- [ ] Lambda Functions;
+- [x] Lambda Functions;
  

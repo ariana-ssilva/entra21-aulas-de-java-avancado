@@ -1,59 +1,51 @@
-# ENUMS in Java
+# Collections in Java - ArrayList and LinkedList 
 
-> Enumerations serve the purpose of representing a group of named constants in a programming language. For example, the 4 suits in a deck of playing cards may be 4 enumerators named Club, Diamond, Heart, and Spade, belonging to an enumerated type named Suit. Other examples include natural enumerated types (like the planets, days of the week, colors, directions, etc.). 
-Enums are used when we know all possible values at compile-time, such as choices on a menu, rounding modes, command-line flags, etc. It is not necessary that the set of constants in an enum type stay fixed for all time.
+## ArrayList
+
+> It provides us with dynamic arrays in Java. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed. This class is found in java.util package.
+
+<br>
+<p align=center>
+<img src=ArrayList.png width= 500px>
+<p>
+<br>
+
+Since ArrayList is a dynamic array and we do not have to specify the size while creating it, the size of the array automatically increases when we dynamically add and remove items. Though the actual library implementation may be more complex, the following is a very basic idea explaining the working of the array when the array becomes full and if we try to add an item:
+
+* Creates a bigger-sized memory on heap memory (for example memory of double size).
+* Copies the current memory elements to the new memory.
+* New item is added now as there is bigger memory available now.
+* Delete the old memory.
+
+<br>
+<p align=center>
+<img src=ArrayList2.png width= 500px>
+<p>
+<br>
+
+1. <b>AbstractList</b>: This class is used to implement an unmodifiable list, for which one needs to only extend this AbstractList Class and implement only the get() and the size() methods.
+2. <b>CopyOnWriteArrayList</b>: This class implements the list interface. It is an enhanced version of ArrayList in which all the modifications(add, set, remove, etc.) are implemented by making a fresh copy of the list.
+3. <b>AbstractSequentialList</b>: This class implements the Collection interface and the AbstractCollection class. This class is used to implement an unmodifiable list, for which one needs to only extend this AbstractList Class and implement only the get() and the size() methods.
 
 <br>
 
-## Declaration of enum in Java
-Enum declaration can be done outside a Class or inside a Class but not inside a Method:
+### Constructors in the ArrayList
+In order to create an ArrayList, we need to create an object of the ArrayList class. The ArrayList class consists of various constructors which allow the possible creation of the array list. The following are the constructors available in this class:
+ 
+1. ArrayList(): This constructor is used to build an empty array list. If we wish to create an empty ArrayList with the name arr, then, it can be created as:
 
 ```java
-enum Color {
-    RED,
-    GREEN,
-    BLUE;
-}
+ArrayList arr = new ArrayList(); 
+``` 
+
+2. ArrayList(Collection c): This constructor is used to build an array list initialized with the elements from the collection c. Suppose, we wish to create an ArrayList arr which contains the elements present in the collection c, then, it can be created as: 
  
-public class Test {
-    public static void main(String[] args)
-    {
-        Color c1 = Color.RED;
-        System.out.println(c1);
-    }
-}
+```java
+ArrayList arr = new ArrayList(c); 
+``` 
+
+3. ArrayList(int capacity): This constructor is used to build an array list with initial capacity being specified. Suppose we wish to create an ArrayList with the initial size being N, then, it can be created as:
+
+```java
+ArrayList arr = new ArrayList(N);  
 ```
-<br>
-
-### Important Points of enum:  
-
-* Every enum is internally implemented by using Class;
-* Every enum constant represents an object of type enum;
-* enum type can be passed as an argument to switch statements; 
-* Every enum constant is always implicitly public static final. Since it is static, we can access it by using the enum Name. Since it is final, we can’t create child enums;
-  
-<br>
-
-## Enum and Inheritance:
-* All enums implicitly extend ``java.lang.Enum class``. As a class can only extend one parent in Java, so an enum cannot extend anything else;
-* `toString()` method is overridden in ``java.lang.Enum`` class, which returns enum constant name;
-* enum can implement many interfaces.
-
-<br>
-
-## values(), ordinal() and valueOf() methods:  
-* These methods are present inside ``java.lang.Enum``;
-* ``values()`` method can be used to return all values present inside the enum;
-* Order is important in enums.By using the ``ordinal()`` method, each enum constant index can be found, just like an array index;
-* ``valueOf()`` method returns the enum constant of the specified string value if exists.
-
-<br>
-
-## enum and constructor:  
-* ``enum`` can contain a constructor and it is executed separately for each enum constant at the time of enum class loading;
-* We can’t create enum objects explicitly and hence we can’t invoke enum constructor directly.
-  
- <br>
-
-## enum and methods:  
-* ``enum`` can contain both ``concrete methods and abstract methods``. If an enum class has an abstract method, then each instance of the enum class must implement it.
